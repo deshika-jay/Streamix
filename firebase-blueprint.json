@@ -1,0 +1,29 @@
+{
+  "entities": {
+    "Movie": {
+      "title": "Movie",
+      "description": "A movie streaming link and TMDB metadata",
+      "type": "object",
+      "properties": {
+        "tmdbId": { "type": "string" },
+        "title": { "type": "string" },
+        "overview": { "type": "string" },
+        "posterPath": { "type": "string" },
+        "backdropPath": { "type": "string" },
+        "releaseDate": { "type": "string" },
+        "genres": { "type": "array" },
+        "streamLink": { "type": "string" },
+        "tmdbUrl": { "type": "string" },
+        "createdAt": { "type": "timestamp" },
+        "updatedAt": { "type": "timestamp" }
+      },
+      "required": ["tmdbId", "title", "streamLink"]
+    }
+  },
+  "firestore": {
+    "movies/{movieId}": {
+      "schema": { "$ref": "#/entities/Movie" },
+      "description": "Collection of movies available for streaming"
+    }
+  }
+}
